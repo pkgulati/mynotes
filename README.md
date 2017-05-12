@@ -26,6 +26,31 @@ var file = require(file);
 file(data, options);
 
 
+## preserve-content
+In _parseChildNodesAnnotations, _parseTemplate is not invoked for a node if it has attribute preserve-content
+
+
+      // bootstrap the template if it has not already been
+      if (this._template && !this._template.content &&
+          window.HTMLTemplateElement && HTMLTemplateElement.decorate) {
+        HTMLTemplateElement.decorate(this._template);
+      }
+    },
+    
+ # Polymer parses template at once...
+      _parseTemplate: function(node, index, list, parent) {
+      var content = document.createDocumentFragment();
+      content._notes = this.parseAnnotations(node);
+      content.appendChild(node.content);
+      list.push({
+        bindings: Polymer.nar,
+        events: Polymer.nar,
+        templateContent: content,
+        parent: parent,
+        index: index
+      });
+      
+      
 
 
 
