@@ -2,6 +2,11 @@
 A Service is an application component representing either an application's desire to perform a longer-running operation while not interacting with the user or to supply functionality for other applications to use.
 * A Service is not a separate process by default (Although it is possible to achieve it)
 
+# Services
+The Services framework allows you to perform long-running operations in the background. We recommend foreground services for tasks, such as playing music, which need to stay resident for the user. Bound services also continue to be useful for various use cases: for example, when a service needs to run only when a user is viewing a fragment or activity.
+
+You should avoid using started services that run perpetually or perform periodic work, since they continue to use device resources even when they are not performing useful tasks. Instead, you should use other solutions like JobScheduler, AlarmManager, Firebase JobDispatcher and SyncAdapater that provide native lifecycle management. Use started services only as a last resort. The Android platform may not support started services in the future.
+
 # IntentService
 To handle aynchronous requests (as intents), to use it extend IntentService and implement onHandleIntent
 
@@ -47,7 +52,8 @@ A ViewHolder describes an item view and metadata about its place within the Recy
 
 # Links
 * [Building a chat tutorial](https://blog.sendbird.com/android-chat-tutorial-building-a-messaging-ui)
+* [Implicit Broadcast Exceptions] (https://developer.android.com/guide/components/broadcast-exceptions.html)
 
-
-
+# Broadcasts
+Apps can receive broadcasts in two ways: through manifest-declared receivers and context-registered receivers. If you declare a broadcast receiver in your manifest, the system launches your app (if the app is not already running) when the broadcast is sent. To register a receiver with a context Create an instance of BroadcastReceiver. Create an IntentFilter and register the receiver by calling registerReceiver(BroadcastReceiver, IntentFilter):
 
