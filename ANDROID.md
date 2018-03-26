@@ -57,3 +57,6 @@ A ViewHolder describes an item view and metadata about its place within the Recy
 # Broadcasts
 Apps can receive broadcasts in two ways: through manifest-declared receivers and context-registered receivers. If you declare a broadcast receiver in your manifest, the system launches your app (if the app is not already running) when the broadcast is sent. To register a receiver with a context Create an instance of BroadcastReceiver. Create an IntentFilter and register the receiver by calling registerReceiver(BroadcastReceiver, IntentFilter):
 
+# ContentProvider
+Content providers are one of the primary building blocks of Android applications, providing content to applications. They encapsulate data and provide it to applications through the single ContentResolver interface. A content provider is only required if you need to share data between multiple applications
+
