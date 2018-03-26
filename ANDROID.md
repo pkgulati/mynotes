@@ -33,3 +33,21 @@ and later
 wakeLock.release()
 ```
 
+# Adapter
+An Adapter object acts as a bridge between an AdapterView and the underlying data for that view. The Adapter provides access to the data items. The Adapter is also responsible for making a View for each item in the data set.
+
+# ArrayAdapter
+You can use this adapter to provide views for an AdapterView, Returns a view for each object in a collection of data objects you provide, and can be used with list-based user interface widgets such as ListView or Spinner.
+
+# AdapterView
+An AdapterView is a view whose children are determined by an Adapter.
+
+# RecyclerView.ViewHolder
+A ViewHolder describes an item view and metadata about its place within the RecyclerView.
+
+# Links
+* [Building a chat tutorial](https://blog.sendbird.com/android-chat-tutorial-building-a-messaging-ui)
+
+
+
+
