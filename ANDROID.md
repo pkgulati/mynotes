@@ -17,5 +17,19 @@ A bound service is the server in a client-server interface. It allows components
 # Bundle
 A mapping from String keys to various Parcelable values
 
+# AlarmManager
+This class provides access to the system alarm services. These allow you to schedule your application to be run at some point in the future. When an alarm goes off, the Intent that had been registered for it is broadcast by the system, automatically starting the target application if it is not already running.
+In Android, the AlarmManager lets us schedule work to happen at a specific time. If your app has work to do and you’d like it to do that work even when the app isn’t running, then the AlarmManager might be a good solution.
+But before we get started, a quick disclaimer. You should only use the AlarmManager when something needs to happen at a specific time. Anything else, and you should be using the JobScheduler. So unless you’re actually making an alarm or something like a clock that chimes every hour on the hour, then you should use the JobScheduler.
 
+# Wake Lock
+```
+PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
+WakeLock wakeLock = powerManager.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,
+        "MyWakelockTag");
+wakeLock.acquire();
+...
+and later
+wakeLock.release()
+```
 
