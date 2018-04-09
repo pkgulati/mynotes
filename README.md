@@ -51,10 +51,24 @@ In _parseChildNodesAnnotations, _parseTemplate is not invoked for a node if it h
       });
       
    ## Loopback relation
+   
+   ### hasOne
    Contact hasOne Information
+   hasOne will create CRUD operation for /api/Contact/id/Information
    then by default (without foreignKey) Information.contactId = Contact.id
    If foreignKey is contactUserId then
    Information.contactUserId = Contact.id
+   
+   ### belongsTo
+   
+   Contact belongsTo Information
+   Then Only fetch will be created in Contact
+   /api/Contacts/id/Information
+   Then it will first find Contact.informationId (by default fk will be informationId)
+   Query will be id = Contact.informationId
+   (here id is primaryKey)
+   
+   
    
    
    
