@@ -67,6 +67,9 @@ In _parseChildNodesAnnotations, _parseTemplate is not invoked for a node if it h
        Then it will first find Contact.informationId (by default fk will be informationId)
        Query will be id = Contact.informationId
        (here id is primaryKey)
+       If we define  "primaryKey" : "xyz", "foreignKey" : "contactUserId"
+       Then it will be where Information.xyz = Contact.contactUserId
+       
    
    
    
