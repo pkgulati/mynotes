@@ -50,7 +50,14 @@ In _parseChildNodesAnnotations, _parseTemplate is not invoked for a node if it h
         index: index
       });
       
-      
+   ## Loopback relation
+   Contact hasOne Information
+   then by default (without foreignKey) Information.contactId = Contact.id
+   If foreignKey is contactUserId then
+   Information.contactUserId = Contact.id
+   
+   
+   
 
 
 
