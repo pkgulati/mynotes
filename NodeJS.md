@@ -63,6 +63,33 @@ Internal modules are registered using NODE_BUILTIN_MODULE_CONTEXT_AWARE macro
 For example in fs module is registered in node_file.cc 
 NODE_BUILTIN_MODULE_CONTEXT_AWARE(fs, node::fs::Initialize)
 
+## Method mapping in C
+In node_file.cc, js method name read is mapped to actual C Read method
+```
+void Initialize(Local<Object> target,
+                Local<Value> unused,
+                Local<Context> context,
+                void* priv) {
+                
+env->SetMethod(target, "read", Read);
 
+```
+
+### Read method Example in node_file.cc
+```
+/*
+ * Wrapper for read(2).
+ *
+ * bytesRead = fs.read(fd, buffer, offset, length, position)
+ *
+ * 0 fd        int32. file descriptor
+ * 1 buffer    instance of Buffer
+ * 2 offset    int32. offset to start reading into inside buffer
+ * 3 length    int32. length to read
+ * 4 position  int64. file position - -1 for current position
+ */
+static void Read(const FunctionCallbackInfo<Value>& args) {
+
+```
 
 
