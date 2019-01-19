@@ -71,8 +71,15 @@ In _parseChildNodesAnnotations, _parseTemplate is not invoked for a node if it h
        Then it will be where Information.xyz = Contact.contactUserId
        
    
-   
-   
+### OAuth or SSL
+
+https://stackoverflow.com/questions/29636715/oauth-2-0-two-legged-authentication-vs-ssl-tls
+
+OAuth and SSL\TLS are two separate layers of the OSI model. OAuth is for authentication and is at the top in Layer 7 while SSL\TLS is for transport security in layer 4. It's easy to confuse SSL with client certificates because they both use PKI.
+
+You are correct in your understanding of OAuth...it is used for authorizing individuals not organizations\servers. 2-legged OAuth is a term that is thrown around which encompass various alternate OAuth flows, all of which do not follow a standard.
+
+In my opinion, you want to use client certificates to secure your server-server communication...all that is really required is a single x509 certificate that can be used as both SSL (transport security) and client certificate (authorization); although using 2 certificates is the norm.
    
    
 
