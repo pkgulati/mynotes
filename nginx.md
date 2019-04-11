@@ -31,9 +31,9 @@
 * ngx_http_wait_request_handler is set as handler in ngx_http_init_connection
 * ngx_reusable_connection
 * ngx_http_process_request_line
-* c->read->handler = ngx_http_request_handler;
-* c->write->handler = ngx_http_request_handler;
-* r->read_event_handler = ngx_http_block_reading;
+* connection -> read event handler = ngx_http_request_handler;
+* connection -> write event handler = ngx_http_request_handler;
+* request -> read event handler = ngx_http_block_reading;
 
 ## ngx_event_get_peer
 
