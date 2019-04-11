@@ -41,12 +41,26 @@
 
 ## Process Request
 * ngx_http_process_request_line is the read event handler invoked by wait request handler
+* sets handlers
+   * connection -> read event handler = ngx_http_request_handler;
+   * connection -> write event handler = ngx_http_request_handler;
+   * request -> read event handler = ngx_http_block_reading;
 * will parse request line ngx_http_parse_request_line, ngx_http_process_request_headers, ngx_http_read_request_header, 
-* finally if NGX_HTTP_PARSE_HEADER_DONE, 
+* finally if NGX_HTTP_PARSE_HEADER_DONE,
+* post_handler in proxy handler is set to ngx_http_upstream_init (passing ngx_http_request_t)
+* ngx_http_upstream_init will invoke ngx_http_upstream_connect and ngx_http_upstream_send_request
+* invokes ngx_http_handler
+* invokes ngx_http_run_posted_requests
 
-* connection -> read event handler = ngx_http_request_handler;
-* connection -> write event handler = ngx_http_request_handler;
-* request -> read event handler = ngx_http_block_reading;
+## upstream handling request
+* ngx_http_upstream_init
+* ngx_http_upstream_connect
+* ngx_handle_write_event
+* ngx_http_upstream_send_request_body
+* location resolver
+* ngx_http_upstream_resolve_handler
+* ngx_http_upstream_create_round_robin_peer
+
 
 ## ctx
 ngx_http_set_ctx
