@@ -37,12 +37,20 @@
 * ngx_http_wait_request_handler waits for incoming requests
 * ngx_http_wait_request_handler is set as handler in ngx_http_init_connection
 * ngx_reusable_connection
-* ngx_http_process_request_line
+* set read event handler as ngx_http_process_request_line
 
 ## Process Request
+* ngx_http_process_request_line is the read event handler invoked by wait request handler
+* will parse request line ngx_http_parse_request_line, ngx_http_process_request_headers, ngx_http_read_request_header, 
+* finally if NGX_HTTP_PARSE_HEADER_DONE, 
+
 * connection -> read event handler = ngx_http_request_handler;
 * connection -> write event handler = ngx_http_request_handler;
 * request -> read event handler = ngx_http_block_reading;
+
+## ctx
+ngx_http_set_ctx
+ngx_http_get_module_ctx
 
 ## ngx_event_get_peer
 
