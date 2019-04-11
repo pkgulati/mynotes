@@ -13,6 +13,9 @@ ls = ngx_create_listening(cf, &addr->opt.sockaddr.sockaddr,
 ngx_http_init_connection
 ls->handler = ngx_http_init_connection; -> ngx_http_wait_request_handler
 
+ngx_http_proxy_handler
+post_handler set to ngx_http_upstream_init
+rc = ngx_http_read_client_request_body(r, ngx_http_upstream_init);
 
 
 http wait request handler	// ngx_http_wait_request_handler
