@@ -1,7 +1,14 @@
-# nginx 
-
-## http handling
-
+# nginx http handling
+* http block of configuration
+* HTTP Connection 
+* HTTP proxy 
+* Wait for request
+* Process Request
+* Events
+* Handlers
+* SSL
+* Busy 
+* Upstream
 
 ## http block of configuration
 * ngx_http_block
@@ -14,23 +21,25 @@
         * ngx_create_listening
 * location handler is set as ngx_http_proxy_handler for http proxy
 
-## http connection 
+## HTTP Connection 
 * ngx_http_add_listening calls ngx_http_init_connection
 * ngx_http_init_connection handler 
 * set read handler = ngx_http_wait_request_handler
 * ngx_http_connection_t is set as data in connection object and once we start receiving request is set as data
 
-## http proxy 
+## HTTP proxy 
 * ngx_http_proxy_handler 
 * post_handler set to ngx_http_upstream_init
 * ngx_http_read_client_request_body(r, ngx_http_upstream_init);
 
-## http wait for request 
+## Wait for request 
 * This is the 1st handler called upon receiving data on socket (after SSL handshake)
 * ngx_http_wait_request_handler waits for incoming requests
 * ngx_http_wait_request_handler is set as handler in ngx_http_init_connection
 * ngx_reusable_connection
 * ngx_http_process_request_line
+
+## Process Request
 * connection -> read event handler = ngx_http_request_handler;
 * connection -> write event handler = ngx_http_request_handler;
 * request -> read event handler = ngx_http_block_reading;
