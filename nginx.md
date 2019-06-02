@@ -54,6 +54,13 @@
 * invokes ngx_http_handler
 * invokes ngx_http_run_posted_requests
 
+## Response From Upstream
+* ngx_http_upstream_process_header reading response header from upstream
+* It will do process_header
+* It will call ngx_http_upstream_process_downstream
+* upstream_done will be true if completed, then it will invoke ngx_http_upstream_finalize_request
+
+
 ## upstream handling request
 * ngx_http_upstream_init
 * ngx_http_upstream_connect
