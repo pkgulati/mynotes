@@ -35,6 +35,8 @@
 ## Wait for request 
 * This is the 1st handler called upon receiving data on socket (after SSL handshake)
 * ngx_http_wait_request_handler waits for incoming requests
+* calls ngx_http_create_request to create a new request
+* invokes ngx_http_process_request_line
 * ngx_http_wait_request_handler is set as handler in ngx_http_init_connection
 * ngx_reusable_connection
 * set read event handler as ngx_http_process_request_line
