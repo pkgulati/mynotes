@@ -75,6 +75,20 @@
 * ngx_http_upstream_connect
 * ngx_http_upstream_send_request
 
+## upstream processing 
+Till upstream_done or upstream_eof with no content,
+* ngx_http_upstream_connect
+* ngx_http_upstream_resolve_handler
+* ngx_http_upstream_connect
+* ngx_event_connect_peer
+* ngx_http_upstream_send_request
+* ngx_http_upstream_process_header(r, u);         
+* ngx_http_upstream_process_non_buffered_upstream
+* ngx_http_upstream_process_non_buffered_downstream
+* ngx_http_upstream_output_filter
+* ngx_http_upstream_process_upstream
+* ngx_http_upstream_process_request
+
 ## ctx
 ngx_http_set_ctx
 ngx_http_get_module_ctx
