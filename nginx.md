@@ -68,8 +68,12 @@
 * ngx_http_upstream_send_request_body
 * location resolver
 * ngx_http_upstream_resolve_handler
-* ngx_http_upstream_create_round_robin_peer
 
+## Request to upstream
+* ngx_http_upstream_init_request
+* ngx_http_upstream_create_round_robin_peer
+* ngx_http_upstream_connect
+* ngx_http_upstream_send_request
 
 ## ctx
 ngx_http_set_ctx
