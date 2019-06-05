@@ -271,3 +271,6 @@ typedef enum {
 } ngx_http_state_e;
 
 ```
+
+## stream connecting proxy
+ngx_stream_proxy_resolve_handler
