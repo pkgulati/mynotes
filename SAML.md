@@ -20,3 +20,7 @@ RelayState, is not much applicable here. As there is no state to be stored.
 
 ## Alternatives
 you need a security token service (STS) that issues a SAML token based on your windows identity  (assuming a domain user).  You will have to choose which standard to use for the token flow.  As you say, .NET's WIF has built-in WS-Federation (for browser based authentication) and WS-Trust (for WCF/SOAP based authentication).  I'm assuming you want to secure a .NET web application.  The easiest way is to use WS-Federation (using NETs  WSFederationAuthenticationModule) and setup ADFS server role on your windows domain. Then configure your relying party (your web application) in ADFS and configure the WSFederationAuthenticationModule on your web app to point to ADFS passive signin endpoint.  There are samples on the internet on how to do this
+
+## Related Github Links
+
+https://github.com/10Duke/desktop-web-sso-example
