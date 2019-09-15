@@ -13,4 +13,7 @@ SAML has one feature that OAuth2 lacks: the SAML token contains the user identit
 On the other hand, with OAuth2 you can invalidate an access token on the Authorization Server, and disable it from further access to the Resource Server
 
 ## Client(Desktop) - Server(TCP server on Unix) using WebSSO
+
+https://stackoverflow.com/questions/27917783/desktop-client-application-for-sso-using-saml
+
 RelayState, is not much applicable here. As there is no state to be stored.
