@@ -1,3 +1,6 @@
+### HashiCorp VAULT
+https://github.com/hashicorp/vault
+
 ### Efficient javascript 
 https://www.smashingmagazine.com/2012/11/writing-fast-memory-efficient-javascript/
 
